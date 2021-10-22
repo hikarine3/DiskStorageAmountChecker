@@ -81,6 +81,7 @@ class DiskStorageAmountChecker():
             print(self.result)
         else:
             print("No disk is exceeding " + self.alert + "% usage.")
+
     def report(self):
         if self.result and self.email and self.from_email:
             subject = 'alert: disk full is near'
