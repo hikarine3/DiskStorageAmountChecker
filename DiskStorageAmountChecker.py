@@ -27,6 +27,7 @@ class DiskStorageAmountChecker():
         self.result = ''
         self.email = ''
         env_file = '.env'
+        specified_env = 0
 
         for argv in sys.argv[1:]:
             matches = []
@@ -43,6 +44,7 @@ class DiskStorageAmountChecker():
                         self.email = value
                     elif name == 'env_file':
                         env_file = value
+                        specified_env += 1
                     elif name == 'user':
                         self.user = value
                     elif name == 'servers':
@@ -56,9 +58,10 @@ class DiskStorageAmountChecker():
             self.smtp_user = os.environ['MAIL_USERNAME']
             self.smtp_password = os.environ['MAIL_PASSWORD']
             self.from_email = os.environ['MAIL_FROM_ADDRESS']
-        elif self.email or self.user:
-            print(env_file + "doesn't exist. this must exist and have to include necessary values")
-            sys.exit()
+        else:
+            if self.email or specified_env:
+                print(env_file + " doesn't exist. this must exist and have to include necessary values")
+                sys.exit()
 
         if self.user == "":
             print("please input --user=SshUserId")
