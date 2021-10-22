@@ -66,11 +66,12 @@ class DiskStorageAmountChecker():
     def check(self):
         for server in self.servers:
             cm = 'ssh -l ' + self.user + ' ' + server +' "df -kh" | perl -e ' +"'" + 'while(<>){$_=~ s{(\d+)\%}{if($1>=' + self.alert + '){print("' + server + '"."\t".$_);}}e;}'+"'"
-            print(cm)
+            if self.debug:
+                print(cm)
             result = subprocess.check_output([cm], shell=True).decode("UTF-8")
             if result:
                 self.result += result
-            print(self.result)
+        print(self.result)
     
     def report(self):
         if self.result and self.email and self.from_email:

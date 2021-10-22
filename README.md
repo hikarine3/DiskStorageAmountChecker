@@ -24,14 +24,21 @@ MAIL_FROM_ADDRESS=example@example.com
 
 ## Command example (コマンド例)
 ### Check available disk amount with email function
+
+
 ```
 python3 DiskStorageAmountChecker.py --email=aaa@example.com --servers=server1,server2 --alert=70 --user=ssh_user_id --env_file=../config/.env
 ```
 
-### Check available disk amount without email function (in this case, you don't have to edit .env)
-```
-python3 DiskStorageAmountChecker.py --servers=server1,server2 --alert=70 --user=ssh_user_id
-```
+#### Mandatory parameters (必須の引数)
+
+--servers=... <= servers to be checked (チェックするサーバー名/パスワード無しでsshでログイン出来る事が必須)
+
+--user=... <= user id which will be used for ssh login (sshログインに使うユーザーID)
+
+#### Optional parameters (オプション項目)
+
+--alert=... <= If rused disk amount's percentage is above this, you will get alert.
 
 # License / ライセンス / 执照
 
