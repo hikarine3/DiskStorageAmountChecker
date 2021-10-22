@@ -1,17 +1,24 @@
 # DiskStorageAmountChecker
-## English
+## What is this script? (このスクリプトは何ですか?)
 This script check disk storage's available amount of specified servers and send alerting message by email if necessary.
 
-For it, you have to configure .env file to set up smtp's usage.
-
-## 日本語
 このスクリプトは、指定した複数のサーバーのディスクの利用可能な容量を確認し、指定した利用率を上回るディスクがあれば、警告のメッセージを指定したメールアドレスに送るスクリプトです。
+
+## Necessary step 1 before you use this script (このスクリプトを使う前の準備1)
+```
+pip3 install firstclass_dotenv;
+```
+
+## Necessary step 2 before you use this script (このスクリプトを使う前の準備2)
+If you want to get alert through email, you have to configure .env file to set up smtp's usage.
+
+Please set values for using your smtp server in .env.
 
 メール機能も使ってこのスクリプトを利用するには、.envの編集が必要です。
 
-AWS・SendgridやGmail等のSMTPサーバの該当情報を入力して下さい。
+貴方が利用可能なAWS・SendgridやGmail等のSMTPサーバの該当情報を入力して下さい。
 
-.envの例
+Example of .env (.envの例)
 ```
 MAIL_DRIVER=smtp
 MAIL_HOST=smtp.sendgrid.net

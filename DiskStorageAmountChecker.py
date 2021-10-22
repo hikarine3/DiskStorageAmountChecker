@@ -5,7 +5,6 @@ import smtplib
 import subprocess
 from email.header import Header
 from email.mime.text import MIMEText
-from email import charset
 from pprint import pprint
 
 import sys
