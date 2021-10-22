@@ -77,7 +77,7 @@ MIT
 ## Name / 名前 / 全名
 Hajime Kurita
 
-## Twitter
+## Twitter (If support is necessary, please ask through twitter / サポートが必要でしたらTwitterから聞いてみて下さい)
 - EN: https://twitter.com/hajimekurita
 - JP: https://twitter.com/hikarine3
 
