@@ -32,13 +32,32 @@ python3 DiskStorageAmountChecker.py --email=aaa@example.com --servers=server1,se
 
 #### Mandatory parameters (必須の引数)
 
---servers=... <= servers to be checked (チェックするサーバー名/パスワード無しでsshでログイン出来る事が必須)
+##### --servers=
+servers to be checked. You can specify multiple servers with ",".
 
---user=... <= user id which will be used for ssh login (sshログインに使うユーザーID)
+チェックするサーバー名/パスワード無しでsshでログイン出来る事が必須。カンマ区切りで複数指定可能
+
+##### --user=...
+user id which will be used for ssh login
+
+sshログインに使うユーザーID
 
 #### Optional parameters (オプション項目)
 
---alert=... <= If rused disk amount's percentage is above this, you will get alert.
+##### --alert=...
+If used disk amount's percentage is above this, you will get alert. If you don't specify, 50% will be used.
+
+もしも使用ディスク割合がこのパーセンテージを超えていれば、警告が出ます。指定しなければ50%が使われます。
+
+##### --email=...
+Mail address to which alert will be sent.
+
+警告が送られるメールアドレス
+
+##### --env_file=...
+If you use .env which is not under execution directory, please specify the path to .env.
+
+実行ディレクトリの.env以外を使う場合には、.envの場所を指定して下さい。
 
 # License / ライセンス / 执照
 
