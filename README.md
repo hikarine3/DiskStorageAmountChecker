@@ -4,6 +4,8 @@ This script check disk storage's available amount of specified servers and send 
 
 このスクリプトは、指定した複数のサーバーのディスクの利用可能な容量を確認し、指定した利用率を上回るディスクがあれば、警告のメッセージを指定したメールアドレスに送るスクリプトです。
 
+![スクリーンショット-2021-10-22-20-53-53](https://user-images.githubusercontent.com/197538/138449841-2040ee29-afcc-4ead-bb99-8ede71c68f6a.png)
+
 ## Necessary step 1 before you use this script (このスクリプトを使う前の準備1)
 ```
 pip3 install firstclass_dotenv;
