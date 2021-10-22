@@ -4,8 +4,7 @@ This script check disk storage's available amount of specified servers and send 
 
 このスクリプトは、指定した複数のサーバーのディスクの利用可能な容量を確認し、指定した利用率を上回るディスクがあれば、警告のメッセージを指定したメールアドレスに送るスクリプトです。
 
-![スクリーンショット-2021-10-22-21-05-44 (1)](https://user-images.githubusercontent.com/197538/138454662-aa6eba8f-ba71-4b15-8405-49d353cda9aa.png)
-
+![スクリーンショット-2021-10-22-21-05-44-1- (1)](https://user-images.githubusercontent.com/197538/138454771-67bd1dff-2a16-4399-b4f7-9cd299326581.png)
 
 ## Necessary step 1 before you use this script (このスクリプトを使う前の準備1)
 ```
