@@ -9,10 +9,23 @@ For it, you have to configure .env file to set up smtp's usage.
 
 メール機能も使ってこのスクリプトを利用するには、.envの編集が必要です。
 
+AWS・SendgridやGmail等のSMTPサーバの該当情報を入力して下さい。
+
+.envの例
+```
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.sendgrid.net
+MAIL_PORT=587
+MAIL_USERNAME=apikey
+MAIL_PASSWORD=Example........
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=example@example.com
+```
+
 ## Command example (コマンド例)
 ### Check available disk amount with email function
 ```
-python3 DiskStorageAmountChecker.py --email=aaa@example.com --servers=server1,server2 --alert=70 --user=ssh_user_id
+python3 DiskStorageAmountChecker.py --email=aaa@example.com --servers=server1,server2 --alert=70 --user=ssh_user_id --env_file=../config/.env
 ```
 
 ### Check available disk amount without email function (in this case, you don't have to edit .env)

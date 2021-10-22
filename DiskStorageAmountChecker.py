@@ -21,9 +21,6 @@ class DiskStorageAmountChecker():
 
     def __init__(self):
         self.alert = str(50)
-        if(not os.path.exists(env_file)):
-            print(env_file + "doesn't exist.")
-            sys.exit()
         self.servers = []
         self.user = ''
         self.result = ''
@@ -49,13 +46,18 @@ class DiskStorageAmountChecker():
                         self.user = value
                     elif name == 'servers':
                         self.servers = value.split(',')
-        dotenv = Dotenv()
-        dotenv.load(env_file)
-        self.smtp_server = os.environ['MAIL_HOST']
-        self.smtp_port = os.environ['MAIL_PORT']
-        self.smtp_user = os.environ['MAIL_USERNAME']
-        self.smtp_password = os.environ['MAIL_PASSWORD']
-        self.from_email = os.environ['MAIL_FROM_ADDRESS']
+
+        if(os.path.exists(env_file)):
+            dotenv = Dotenv()
+            dotenv.load(env_file)
+            self.smtp_server = os.environ['MAIL_HOST']
+            self.smtp_port = os.environ['MAIL_PORT']
+            self.smtp_user = os.environ['MAIL_USERNAME']
+            self.smtp_password = os.environ['MAIL_PASSWORD']
+            self.from_email = os.environ['MAIL_FROM_ADDRESS']
+        elif self.email or self.user:
+            print(env_file + "doesn't exist. this must exist and have to include necessary values")
+            sys.exit()
 
         if self.email == "":
             print("please input --email=...")
