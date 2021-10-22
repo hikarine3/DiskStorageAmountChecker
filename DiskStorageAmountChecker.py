@@ -22,9 +22,10 @@ class DiskStorageAmountChecker():
     def __init__(self):
         self.alert = str(50)
         self.servers = []
+        self.debug = 0
         self.user = ''
         self.result = ''
-        self.debug = 0
+        self.email = ''
         env_file = '.env'
 
         for argv in sys.argv[1:]:
@@ -59,8 +60,11 @@ class DiskStorageAmountChecker():
             print(env_file + "doesn't exist. this must exist and have to include necessary values")
             sys.exit()
 
-        if self.email == "":
-            print("please input --email=...")
+        if self.user == "":
+            print("please input --user=SshUserId")
+            sys.exit()
+        elif self.servers == "":
+            print("please input --servers=Serger1,Server2,...")
             sys.exit()
 
     def check(self):
