@@ -78,8 +78,10 @@ class DiskStorageAmountChecker():
             result = subprocess.check_output([cm], shell=True).decode("UTF-8")
             if result:
                 self.result += result
-        print(self.result)
-    
+        if self.result:
+            print(self.result)
+        else:
+            print("no disks are exceeding " + self.alert + "% usage.")
     def report(self):
         if self.result and self.email and self.from_email:
             subject = 'alert: disk full is near'
