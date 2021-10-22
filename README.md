@@ -1,27 +1,18 @@
 # DiskStorageAmountChecker
-This script heck disk storage's amount of specified servers and send alerting message by email if necessary.
+## English
+This script check disk storage's available amount of specified servers and send alerting message by email if necessary.
 
 For it, you have to configure .env file to set up smtp's usage.
 
-Command example
+## 日本語
+このスクリプトは、指定した複数のサーバーのディスクの利用可能な容量を確認し、指定した利用率を上回るディスクがあれば、警告のメッセージを指定したメールアドレスに送るスクリプトです。
+
+メール昨日も使ってこのスクリプトを利用するには、.envの編集が必要です。
+
+Command example (コマンド例)
 ```
 python3 DiskStorageAmountChecker.py --email=aaa@example.com --servers=server1,server2 --alert=70 --user=ssh_user_id
 ```
-
-If you want to check only disk which is near disk full through shell command,
-
-```
-#!/bin/sh
-user=UserId; # please change
-alert_per=75; # please adjust
-servers=('server1' 'server2') # please change
-for server in ${servers[@]}
-do
-        ssh -l $user $server 'df -kh' | perl -e 'while(<>){$_=~ s{(\d+)\%}{if($1>='$alert_per'){print("'$server'"."\t".$_);}}e;}'
-done
-```
-is enough
-
 
 # License / ライセンス / 执照
 
