@@ -107,5 +107,5 @@ class DiskStorageAmountChecker():
         self.report()
 
 if __name__ == '__main__':
-    pro = CheckDisks()
+    pro = DiskStorageAmountChecker()
     pro.run()
