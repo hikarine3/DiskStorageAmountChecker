@@ -7,11 +7,17 @@ For it, you have to configure .env file to set up smtp's usage.
 ## 日本語
 このスクリプトは、指定した複数のサーバーのディスクの利用可能な容量を確認し、指定した利用率を上回るディスクがあれば、警告のメッセージを指定したメールアドレスに送るスクリプトです。
 
-メール昨日も使ってこのスクリプトを利用するには、.envの編集が必要です。
+メール機能も使ってこのスクリプトを利用するには、.envの編集が必要です。
 
-Command example (コマンド例)
+## Command example (コマンド例)
+### Check available disk amount with email function
 ```
 python3 DiskStorageAmountChecker.py --email=aaa@example.com --servers=server1,server2 --alert=70 --user=ssh_user_id
+```
+
+### Check available disk amount without email function (in this case, you don't have to edit .env)
+```
+python3 DiskStorageAmountChecker.py --servers=server1,server2 --alert=70 --user=ssh_user_id
 ```
 
 # License / ライセンス / 执照

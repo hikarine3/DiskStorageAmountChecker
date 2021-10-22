@@ -20,22 +20,15 @@ class DiskStorageAmountChecker():
         sys.exit(0)
 
     def __init__(self):
-        env_file = '../area/.env'
         self.alert = str(50)
         if(not os.path.exists(env_file)):
             print(env_file + "doesn't exist.")
             sys.exit()
-        dotenv = Dotenv()
-        dotenv.load(env_file)
-        self.smtp_server = os.environ['MAIL_HOST']
-        self.smtp_port = os.environ['MAIL_PORT']
-        self.smtp_user = os.environ['MAIL_USERNAME']
-        self.smtp_password = os.environ['MAIL_PASSWORD']
-        self.from_email = os.environ['MAIL_FROM_ADDRESS']
         self.servers = []
         self.user = ''
         self.result = ''
         self.debug = 0
+        env_file = '.env'
 
         for argv in sys.argv[1:]:
             matches = []
@@ -50,10 +43,20 @@ class DiskStorageAmountChecker():
                         self.alert = value
                     elif name == 'email':
                         self.email = value
+                    elif name == 'env_file':
+                        env_file = value
                     elif name == 'user':
                         self.user = value
                     elif name == 'servers':
                         self.servers = value.split(',')
+        dotenv = Dotenv()
+        dotenv.load(env_file)
+        self.smtp_server = os.environ['MAIL_HOST']
+        self.smtp_port = os.environ['MAIL_PORT']
+        self.smtp_user = os.environ['MAIL_USERNAME']
+        self.smtp_password = os.environ['MAIL_PASSWORD']
+        self.from_email = os.environ['MAIL_FROM_ADDRESS']
+
         if self.email == "":
             print("please input --email=...")
             sys.exit()
