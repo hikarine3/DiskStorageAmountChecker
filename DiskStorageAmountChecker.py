@@ -16,7 +16,7 @@ class DiskStorageAmountChecker():
 
     def help(self):
         print("Example:")
-        print("python3 DiskStorageAmountChecker.py --email=aaa@example.com --servers=server1,server2 --alert=70 --user=ssh_user_id")
+        print("python3 DiskStorageAmountChecker.py --email=aaa@example.com --servers=server1,server2 --alert=70 --user=ssh_user_id --env_file=...")
         sys.exit(0)
 
     def __init__(self):
